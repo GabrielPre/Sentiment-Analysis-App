@@ -7,8 +7,15 @@ cache = redis.Redis(host = 'redis', port = 6379)
 @app.route('/')
 def hello():
 
-    return '''
-              <h1>Hello world</h1>
-              <a> Enter your phrase to analyse</a>
-              <input placeholder="">
-              <button type="button"> Analyse </button>'''
+    return  '''
+                <h1>Hello world</h1>
+                <a> Enter your phrase to analyse</a>
+                <input type="text" id="text_id" placeholder="text">
+                <button type="button" onclick="analyse()"> Analyse </button>
+                
+                <script> 
+                function analyse() {
+                    var x = document.getElementById("text_id").value;
+                    alert("You have entered "+x);
+                }
+                </script>'''
