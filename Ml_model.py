@@ -1,23 +1,28 @@
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
+sid_obj = SentimentIntensityAnalyzer()
 
 
+def predict(text):
+    
+    """ Predict the sentiment of a given text. """
+    sentiment_dict = sid_obj.polarity_scores(text)
+    return get_sentiment_from_compound(sentiment_dict['compound'])
+
+
+def get_sentiment_from_compound(compound_score):
+
+    """ Decide the sentiment as positive, negative and neutral from a compound score. """
+    if compound_score >= 0.05:
+        return "positive"
+    if compound_score <= -0.05:
+        return "negative"
+    return "neutral"
 
 def main():
-    #test some sentences 
-    sid_obj = SentimentIntensityAnalyzer()
-    sentiment_dict = sid_obj.polarity_scores("i'm so happy")
-    print("sentence was rated as", sentiment_dict['neg']*100,"% Negative")
-    print("sentence was rated as", sentiment_dict['neu']*100,"% Neutral")
-    print("sentence was rated as", sentiment_dict['pos']*100,"% Positive")
-    print("sentence Overall Rated As", end= " ")
+    #test with a dataset
+    print("")
 
-    if sentiment_dict['compound'] >= 0.05 :
-        print("Positive")
-    elif sentiment_dict['compound'] >= 0.05 :
-        print("Negative")
-    else :
-        print("Neutral")
 
 
 if __name__ == "__main__" :
