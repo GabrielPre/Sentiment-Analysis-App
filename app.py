@@ -1,6 +1,7 @@
 from flask import Flask
 app = Flask(__name__)
 
+
 with open('frontend.html') as f:
     frontend_template = f.read()
 

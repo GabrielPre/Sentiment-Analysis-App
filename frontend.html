@@ -1,11 +1,44 @@
-<h1>Hello world</h1>
-<a> Enter your phrase to analyse</a>
-<input type="text" id="text_id" placeholder="text">
-<button type="button" onclick="analyse()"> Analyse </button>
+<!DOCTYPE html>
+<html lang="en">
 
-<script>
-    function analyse() {
-        var x = document.getElementById("text_id").value;
-        alert("You have entered " + x);
-    }
-</script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment analysis application</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+        integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+
+    <style>
+        html, body {
+            background-color: rgb(224, 224, 224);
+            height: 100%;
+        }
+        .content {
+            margin: 0 20%;
+            padding: 20px;
+            background-color: white;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Sentiment analysis</h1>
+        <form action="/" method="get">
+            <label for="sentence"> Enter the sentence to analyse: </label>
+            <input type="text" name="sentence" placeholder="text">
+
+            <br />
+            <br />
+            <button type="submit"> Analyse </button>
+        </form>
+        <hr style="margin: 30px 30px;">
+        <div class="result">
+            "$SENTENCE" is a $SENTIMENT sentence.
+        </div>
+    </div>
+</body>
+
+</html>
