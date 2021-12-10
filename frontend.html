@@ -20,27 +20,29 @@
             background-color: white;
             height: 100%;
         }
-        .result {
-            display: $RESULT_DISPLAY$;
-        }
     </style>
 </head>
 
 <body>
     <div class="content">
         <h1>Sentiment analysis</h1>
-        <form action="/" method="get">
-            <label for="sentence"> Enter the sentence to analyse: </label>
-            <input type="text" name="sentence" placeholder="text">
+        <a> Enter your sentence to analyse</a>
+        <input type="text" id="text_id" placeholder="text">
+        <button type="button" onclick="analyse()"> Analyse </button>
+        <br><a id="toChange"> Test </a>
+        <script>
 
-            <br />
-            <br />
-            <button type="submit"> Analyse </button>
-        </form>
-        <hr style="margin: 30px 30px;">
-        <div class="result">
-            "$SENTENCE$" is a $SENTIMENT$ sentence.
-        </div>
+        function analyse() {
+            var inputmessage = document.getElementById("text_id").value
+            var response = fetch('/classify?inputmessage='+inputmessage)
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json)
+                document.getElementById("toChange").innerHTML = json
+            })
+        }
+        
+        </script>
     </div>
 </body>
 
