@@ -12,7 +12,10 @@ def predict(text):
 
 def get_sentiment_from_compound(compound_score):
 
-    """ Decide the sentiment as positive, negative and neutral from a compound score. """
+    """ 
+    Decide the sentiment as positive, negative and neutral from a compound score. 
+    :param compund_score: A float between -1 and 1
+    """
     if compound_score >= 0.05:
         return "positive"
     if compound_score <= -0.05:
@@ -20,8 +23,11 @@ def get_sentiment_from_compound(compound_score):
     return "neutral"
 
 def main():
-    #test with a dataset
-    print("")
+    #test some sentences 
+    text="I'm so happy"
+    
+    sentiment_predict = predict(text) #score
+    print("sentence Overall Rated As ", sentiment_predict)
 
 
 
