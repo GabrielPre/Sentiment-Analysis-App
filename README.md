@@ -7,7 +7,7 @@
 
 To run the docker image, use the following command:
 ```
-docker run -p 5000:5000 bluplip/app:DataEngineeringProject
+docker run -p 5000:5000 bluplip/app:sentiment-analysis-app
 ```
 
 The website is now accessible on [http://localhost:5000](http://localhost:5000).

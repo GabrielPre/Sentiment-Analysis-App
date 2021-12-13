@@ -26,10 +26,15 @@
 <body>
     <div class="content">
         <h1>Sentiment analysis</h1>
-        <a> Enter your sentence to analyse</a>
-        <input type="text" id="text_id" placeholder="text">
-        <button type="button" onclick="analyse()"> Analyse </button>
-        <br><a id="toChange"> Test </a>
+        <form onsubmit="analyse()" action="javascript:void(0)">
+            <a> Enter your sentence to analyse</a>
+            <input type="text" id="text_id" placeholder="text">
+            <button type="submit"> Analyse </button>
+        </form>
+        
+        <hr>
+
+        <br><a id="toChange"> </a>
         <script>
 
         function analyse() {
@@ -38,7 +43,7 @@
             .then((response) => response.json())
             .then((json) => {
                 console.log(json)
-                document.getElementById("toChange").innerHTML = json
+                document.getElementById("toChange").innerHTML = 'The "' + inputmessage + '" sentence was rated as ' + json
             })
         }
         
