@@ -1,5 +1,4 @@
 flask==1.1.2
 vaderSentiment==3.3.2
-tensorflow==2.6.2
 pandas
 pytest==6.2.5
