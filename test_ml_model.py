@@ -8,4 +8,4 @@ def test_sentiment():
     assert Ml_model.predict("I hate this food") == "negative"
 
 def test_accuracy():
-    assert Ml_model.test_model_accuracy() >= 0.8, "vader accuracy is < 0.8"
+    assert Ml_model.get_model_accuracy() >= 0.8, "vader accuracy is < 0.8"
