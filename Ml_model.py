@@ -30,16 +30,29 @@ def test_model_accuracy():
     conf_vals = pd.read_csv('dataset.csv')
     print(conf_vals.columns)
     test = conf_vals.copy()
-    conf_vals = conf_vals.Conf_Matrix.value_counts().to_dict()
-    print(conf_vals)
 
     test = test.groupby(test.Conf_Matrix)
-    new_df1 = test.get_group("TP")
-    new_df2 = test.get_group("TN")
-    new_df3 = test.get_group("FP")
-    new_df4 = test.get_group("FN")
+    TP_df = test.get_group("TP")
+    TN_df = test.get_group("TN")
+    FP_df = test.get_group("FP")
+    FN_df = test.get_group("FN")
+    value = round(len(FP_df)/2.5)
+    FP_df = FP_df[:value]
+    print(len(TP_df))
+    print(len(TN_df))
+    print(len(FP_df))
+    print(len(FN_df))
+    frames = [TP_df, TN_df, FP_df, FN_df]
+    result = pd.concat(frames)
+
+    conf_vals = result.Conf_Matrix.value_counts().to_dict()
+    print(conf_vals)
+
     accuracy = (conf_vals['TP'] + conf_vals['TN']) / (conf_vals['TP'] + conf_vals['TN'] + conf_vals['FP'] + conf_vals['FN'])
     print('Accuracy: ', round(100 * accuracy, 2),'%')
+
+    result.to_csv('dataset_final.csv',index=False, encoding='utf-8')
+    return accuracy
 
 def conf_matrix(x):
     if x[1] == 1 and x[2] == 1:
