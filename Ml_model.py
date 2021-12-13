@@ -1,6 +1,5 @@
 from pandas.core.groupby.groupby import get_groupby
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import tensorflow as tf
 import pandas as pd
 sid_obj = SentimentIntensityAnalyzer()
 
@@ -50,6 +49,7 @@ def conf_matrix(x):
         return 0
 
 def create_dataset():
+    import tensorflow as tf
     #
     (train_data, train_labels), (test_data, test_labels) = tf.keras.datasets.imdb.load_data(index_from=3)
     words2index = tf.keras.datasets.imdb.get_word_index()
