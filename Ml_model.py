@@ -74,12 +74,14 @@ def create_dataset():
 
 def main():
     #test with a dataset
+    create_dataset()
     test_model_accuracy()
 
 
 
 if __name__ == "__main__" :
     main()
+
 
 
 

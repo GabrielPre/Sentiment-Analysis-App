@@ -1,6 +1,6 @@
 from flask.wrappers import Request
 from flask import Flask, request, jsonify
-from classify import adder
+from Ml_model import predict
 app = Flask(__name__)
 
 
@@ -15,7 +15,7 @@ def index():
 @app.route('/classify', methods=['GET'])
 def classify():
     inputmessage = request.args.get('inputmessage')
-    return jsonify("you entered {} ".format(inputmessage))
+    return jsonify(format(predict(inputmessage)))
 
 
 if __name__ == '__main__':
