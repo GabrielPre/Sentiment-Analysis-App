@@ -1,3 +1,4 @@
+from pandas.core.groupby.groupby import get_groupby
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import tensorflow as tf
 import pandas as pd
@@ -27,9 +28,16 @@ def get_sentiment_from_compound(compound_score):
 def test_model_accuracy():
     
     conf_vals = pd.read_csv('dataset.csv')
+    print(conf_vals.columns)
+    test = conf_vals.copy()
     conf_vals = conf_vals.Conf_Matrix.value_counts().to_dict()
     print(conf_vals)
 
+    test = test.groupby(test.Conf_Matrix)
+    new_df1 = test.get_group("TP")
+    new_df2 = test.get_group("TN")
+    new_df3 = test.get_group("FP")
+    new_df4 = test.get_group("FN")
     accuracy = (conf_vals['TP'] + conf_vals['TN']) / (conf_vals['TP'] + conf_vals['TN'] + conf_vals['FP'] + conf_vals['FN'])
     print('Accuracy: ', round(100 * accuracy, 2),'%')
 
