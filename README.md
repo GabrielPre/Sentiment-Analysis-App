@@ -39,25 +39,25 @@ We divided the project in Milestones and Tasks that are part of thoses Milestone
 ## **Milestones**
 
 This was our main view with the state of our tasks, the tasks associated with a progress bar that's a custom function based on the completition of the tasks.
-![Main View Tasks](./pictures/Milestones.png)
+![Main View Tasks](./pictures/Milestones.PNG)
 
 This board view allowed us to have an overview of our progress for this project.
-![Board View Milestone](./pictures/Milestones_2.png)
+![Board View Milestone](./pictures/Milestones_2.PNG)
 
 ## **Tasks**
 
 This view was our backlog where we splitted the work for all Milestones and where we updated our progress.
-![Main View Tasks](./pictures/Tasks.png)
+![Main View Tasks](./pictures/Tasks.PNG)
 
 This view gave us an overview of each tasks in each Milestone and their progress.
-![Board View Tasks](./pictures/Tasks_2.png)
+![Board View Tasks](./pictures/Tasks_2.PNG)
 
 # **Git Workflow**
 We followed the main GitFlow principle like this:
 ![Gitflow model](./pictures/gitworkflow_model.png)
 
 This is our Git Workflow:
-![Our Gitflow](./pictures/our_gitworkflow.png)
+![Our Gitflow](./pictures/our_gitworkflow.PNG)
 # **Authors**
 
 Céline YE
